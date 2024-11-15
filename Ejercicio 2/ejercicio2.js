@@ -21,8 +21,6 @@ function encontrarMayor(arrayParam){
         if (palabra.length>maxima.length){
             maxima=palabra;
         }
-         
-
     }
     return maxima;
 }

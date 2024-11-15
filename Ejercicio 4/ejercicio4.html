@@ -4,35 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 4</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Curso</title>
+    <script src="Curso.js"></script> 
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: lightgray;
+        }
+        /* Contenedor centralizado */
+        .listas {
+            width: 30%;
+            padding: 1em;
+            align-self: center;
+            background-color: white;
+        }
+        main{
+            align-self: center;
+            background-color: white;
+            width: 30%;
+        }
+    </style>
+
+
 </head>
 
 <body>
-    <main>
-        <div class="agregar">
-            <input type="text" name="alumno" id="alumno" placeholder="Nombre">
-            <button id="agregar">Agregar alumno</button>
-            <div class="agregarNota">
-                <input type="number" name="nota" id="nota" placeholder="Nota">
-                <input type="text" id="alumnoNota"  placeholder="Alumno con esa nota">
-                <button id="addNota">Agregar Nota</button>
-            </div>
-        </div>
-        <div class="eliminar">
-            <label for="nombreEliminar">Introduce el nombre a eliminar</label>
-            <input type="text" id="nombreEliminar" name="nombreEliminar" placeholder="Eliminar">
-            <button id="botonEliminar">Eliminar alumno</button>
-        </div>
-        <div class="mostrar">
-            <button id="mostrar">Mostrar alumnos</button>
-            <button id="modificar">Modificar máximo</button>
-            <button id="estad">Mostrar estadísticas</button>
-        </div>
-    </main>
+    <div class="listas">
+        <button id="nombre">Agregar alumno</button>
+        <button id="nota">Agregar nota</button>
+    </div>
+    <div class="listas">
+        <button id="eliminar">Eliminar alumno</button>
+        <button id="listar">Listar alumnos</button>
+    </div>
+    <div class="listas">
+        <button id="estad">Mostrar estadísticas</button>
+        <button id="max">Modificar máximo de alumnos</button>
+    </div>
+
+    <main></main>
 
 
-    <script src="ejercicio4.js"></script>
+
+    
 </body>
 
 </html>

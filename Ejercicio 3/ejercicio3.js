@@ -11,9 +11,7 @@
 //             ...
 
 // Al llegar a 0, la cuenta atrás se para.
-
-
-let patron = /^[s|m]{1}$/i;
+let patron = /^[s|m]{1}$/i; //verificamos si introducimos m o s ingorándo mayúsculas
 
 let numero = prompt("Introduce un número");
 let letra = prompt("Introduce un carácter");
@@ -29,8 +27,6 @@ function cuentaAtras(num, caracter) {
     }
 
     if (caracter.toLowerCase() === 'm') num = num *60; //pasamos minutos a segundos si estamos en m...si estamos en s, dejamos todo normal
-    
-    let parrafo = document.getElementById('parrafo'); 
 
     let mostrar = () => { //funcion que usaremos en la llamada al interval
 
@@ -45,7 +41,5 @@ function cuentaAtras(num, caracter) {
 
     let intervalo = setInterval(mostrar, 1000);
 }
-
-
 cuentaAtras(numero, letra);
 
