@@ -88,19 +88,21 @@ window.onload = () => { //Cargamos el script desde el head
             let totalAlumnos = (this.alumnos.length);
             //OBTENCIÓN DE LA MEDIA
             for (let i = 0; i < this.alumnos.length; i++) {
+                //convertimos las notas a números para que se pueda tratar bien con ellas
                 total += parseInt(this.alumnos[i].nota);
+                let notaAlumnoParse = parseFloat(this.alumnos[i].nota);
                 if (i == 0) {
-                    maxima = this.alumnos[i].nota;
+                    maxima = notaAlumnoParse;
                     alumnoMaxima= this.alumnos[i].nombre;
                 }
-                else {
-                    if (this.alumnos[i].nota > maxima) {
-                        maxima = this.alumnos[i].nota;
+                else if (i>0) {
+                    if (notaAlumnoParse > maxima) { 
+                        maxima = notaAlumnoParse;
                         alumnoMaxima = this.alumnos[i].nombre;
                     }
                 }
             }
-            let media = total / totalAlumnos;
+            let media = parseFloat((total / totalAlumnos)).toFixed(2); //Redondeamos dos decimales y lo convertimos en Float
             let main = document.getElementsByTagName("main")[0]; //Cogemos el primer elemento main
             let parrafo = document.createElement('p');  //Generamos un párrafo
 
@@ -121,7 +123,6 @@ window.onload = () => { //Cargamos el script desde el head
     document.getElementById('nombre').addEventListener('click', () => {
         nombre = prompt('Inserta un nombre para el alumno');
         c1.agregarAlumnos(nombre);
-
     })
 
     //AGREGAR NOTA
