@@ -68,15 +68,15 @@ window.onload = () => { //Cargamos el script desde el head
         
         eliminarAlumno(nombreAlumno) {
 
-            let busqueda = this.alumnos.find((elemento) => elemento == nombreAlumno);
-            if (busqueda == null) {
-                for (let alumno of this.alumnos) {
-                    if (alumno.nombre === nombreAlumno) {
-                        this.alumnos.splice(alumno.nombre);
-                        alert("Alumno eliminado satisfactoriamente")
+            let indice = this.alumnos.findIndex((elemento) => elemento.nombre === nombreAlumno); //búscamos el indice del alumno a eliminar
+            if (indice != -1 ) { //si encontramos indice, es decir, no es -1, entramos al bucle
+                for(let i=0; i<this.alumnos.length; i++){
+                    if(this.alumnos[i].nombre==nombreAlumno){
+                        this.alumnos.splice(i, 1); 
+                        alert("Alumno eliminado satisfactoriamente"); 
                     }
                 }
-            } else {
+            } else { //si no se encuentra indice de alumno es que no está en la lista
                 alert('No podemos eliminar un alumno que no está en la lista');                
             }
         }

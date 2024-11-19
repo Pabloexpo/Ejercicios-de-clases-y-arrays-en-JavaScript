@@ -11,35 +11,38 @@
 //             ...
 
 // Al llegar a 0, la cuenta atrás se para.
-let patron = /^[s|m]{1}$/i; //verificamos si introducimos m o s ingorándo mayúsculas
+window.onload = () => {
+    let patron = /^[s|m]{1}$/i; //verificamos si introducimos m o s ingorándo mayúsculas
 
-let numero = prompt("Introduce un número");
-let letra = prompt("Introduce un carácter");
+    let numero = prompt("Introduce un número");
+    let letra = prompt("Introduce un carácter");
 
-function cuentaAtras(num, caracter) {
-    if (isNaN(num) || num <= 0) {
-        alert('No has introducido un número válido');
-        return; // Salimos de la función
-    }
-    if (!patron.test(caracter)) {
-        alert('No has introducido un carácter correcto');
-        return; 
-    }
-
-    if (caracter.toLowerCase() === 'm') num = num *60; //pasamos minutos a segundos si estamos en m...si estamos en s, dejamos todo normal
-
-    let mostrar = () => { //funcion que usaremos en la llamada al interval
-
-        if (num>0){
-            document.write("Faltan " + num + " segundos<br>"); 
-            num --; 
-        } else {
-            document.write("Tiempo terminado"); 
-            clearInterval(intervalo); 
+    function cuentaAtras(num, caracter) {
+        if (isNaN(num) || num <= 0) {
+            alert('No has introducido un número válido');
+            return; // Salimos de la función
         }
-    }
+        if (!patron.test(caracter)) {
+            alert('No has introducido un carácter correcto');
+            return;
+        }
 
-    let intervalo = setInterval(mostrar, 1000);
+        if (caracter.toLowerCase() === 'm') num = num * 60; //pasamos minutos a segundos si estamos en m...si estamos en s, dejamos todo normal
+
+        let mostrar = () => { //funcion que usaremos en la llamada al interval
+
+            if (num > 0) {
+                document.write("Faltan " + num + " segundos<br>");
+                num--;
+            } else {
+                document.write("Tiempo terminado");
+                clearInterval(intervalo);
+            }
+        }
+
+        let intervalo = setInterval(mostrar, 1000);
+    }
+    cuentaAtras(numero, letra);
 }
-cuentaAtras(numero, letra);
+
 

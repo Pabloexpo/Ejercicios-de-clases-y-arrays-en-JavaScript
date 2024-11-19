@@ -55,16 +55,3 @@ window.onload = () => {
     })
 }
 
-
-
-
-
-
-
-
-parrafo.innerHTML = `La primera palabra introducida ha sido: ${array[0]} <br>
-                     La última palabra introducida ha sido: ${array[array.length - 1]} <br>
-                     La palabra de mayor longitud ha sido: ${palMaxima}<br>
-                     La media de las longitudes ha sido: ${Math.ceil(longitud / array.length)}`;
-main.style.padding = '1em';
-main.appendChild(parrafo); 
